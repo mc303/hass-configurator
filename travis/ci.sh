@@ -10,6 +10,8 @@ fi
 echo $DOCKER_PASSWORD | docker login -u mc303 --password-stdin &> /dev/null
 TAG="${TRAVIS_TAG:-latest}"
 docker buildx build \
+     --build-arg CONFIGURATOR_VERSION=$CONFIGURATOR_VERSION \
+     --build-arg BUILD_FROM=$BUILD_FROM \
      --progress plain \
     --platform=linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64 \
     -t $DOCKER_REPO:latest \
