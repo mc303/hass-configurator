@@ -19,8 +19,8 @@ echo "CONTAINER_NAME_TAG_VERSION=${CONTAINER_NAME_TAG_VERSION}"
 echo "BUIILDX_REPO=${BUIILDX_REPO}"
 echo "BUILD_PLATFORM=${BUILD_PLATFORM}"
 
-# if [ ${CONTAINER_CURRENT_VERSION} != ${GITHUB_REPO_VERSION} ]
-# then
+if [ ${CONTAINER_CURRENT_VERSION} != ${GITHUB_REPO_VERSION} ]
+then
   echo "docker buildx build . --platform=${BUILD_PLATFORM} --tag ${CONTAINER_NAME} --tag ${CONTAINER_NAME_TAG_VERSION} --push"
 
   docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
@@ -31,12 +31,11 @@ echo "BUILD_PLATFORM=${BUILD_PLATFORM}"
 
   #build multiplatform docker image
   docker buildx build . --platform=${BUILD_PLATFORM} --tag ${CONTAINER_NAME} --tag ${CONTAINER_NAME_TAG_VERSION} --push
-  # docker buildx build . --platform=${BUILD_PLATFORM} --tag ${CONTAINER_NAME} --push
   
   #remove multiplatform environment
   docker buildx rm ${BUIILDX_REPO}
 
-# else
-#   echo "versions are the same nothing to do here.....!!"
+else
+  echo "versions are the same nothing to do here.....!!"
 
-# fi
+fi
