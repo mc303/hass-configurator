@@ -24,17 +24,17 @@ echo ${BUILD_PLATFORM}
 # then
   echo "docker buildx build . --platform=${BUILD_PLATFORM} --tag ${CONTAINER_NAME} --tag ${CONTAINER_NAME_TAG_VERSION} --push"
 
-  docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+  # docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 
-  #create multiplatform environment
-  docker buildx create --platform=${BUILD_PLATFORM} --name ${BUIILDX_REPO}
-  docker buildx use ${BUIILDX_REPO}
+  # #create multiplatform environment
+  # docker buildx create --platform=${BUILD_PLATFORM} --name ${BUIILDX_REPO}
+  # docker buildx use ${BUIILDX_REPO}
 
-  #build multiplatform docker image
-  docker buildx build . --platform=${BUILD_PLATFORM} --tag ${CONTAINER_NAME} --tag ${CONTAINER_NAME_TAG_VERSION} --push
+  # #build multiplatform docker image
+  # docker buildx build . --platform=${BUILD_PLATFORM} --tag ${CONTAINER_NAME} --tag ${CONTAINER_NAME_TAG_VERSION} --push
 
-  #remove multiplatform environment
-  docker buildx rm ${BUIILDX_REPO}
+  # #remove multiplatform environment
+  # docker buildx rm ${BUIILDX_REPO}
 
 # else
 #   echo "versions are the same nothing to do here.....!!"
