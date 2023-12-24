@@ -8,7 +8,7 @@ CONTAINER_CURRENT_VERSION=$(docker run --rm quay.io/skopeo/stable list-tags dock
 CONTAINER_NAME="ghcr.io/mc303/${GITHUB_REPO}:latest"
 CONTAINER_NAME_TAG_VERSION="ghcr.io/mc303/${GITHUB_REPO}:${GITHUB_REPO_VERSION}"
 BUIILDX_REPO="build-${GITHUB_REPO}" 
-BUILD_PLATFORM="linux/amd64,linux/arm/v7,linux/arm64"
+BUILD_PLATFORM="linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64"
 
 echo "CHECK_GITHUB_REPO=${CHECK_GITHUB_REPO}" 
 echo "GITHUB_REPO=${GITHUB_REPO}"
