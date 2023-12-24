@@ -30,8 +30,8 @@ echo "BUILD_PLATFORM=${BUILD_PLATFORM}"
   docker buildx use ${BUIILDX_REPO}
 
   #build multiplatform docker image
-  # docker buildx build . --platform=${BUILD_PLATFORM} --tag ${CONTAINER_NAME} --tag ${CONTAINER_NAME_TAG_VERSION} --push
-  docker buildx build . --platform=${BUILD_PLATFORM} --tag ${CONTAINER_NAME} --push
+  docker buildx build . --platform=${BUILD_PLATFORM} --tag ${CONTAINER_NAME} --tag ${CONTAINER_NAME_TAG_VERSION} --push
+  # docker buildx build . --platform=${BUILD_PLATFORM} --tag ${CONTAINER_NAME} --push
   
   #remove multiplatform environment
   docker buildx rm ${BUIILDX_REPO}
